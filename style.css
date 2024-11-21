@@ -8,3 +8,8 @@ body {
   background-color: #eee;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+canvas {
+  border: solid 2px #8e8e8e;
+  margin: 50px;
+}
