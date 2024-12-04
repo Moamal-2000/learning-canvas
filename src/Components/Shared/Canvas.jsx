@@ -7,19 +7,26 @@ const Canvas = () => {
     writeCanvas(canvasRef.current);
   }, []);
 
-  return <canvas ref={canvasRef} width="700" height="600"></canvas>;
+  return <canvas ref={canvasRef} width="401" height="401"></canvas>;
 };
 export default Canvas;
 
 function writeCanvas(canvas) {
   const ctx = canvas.getContext("2d");
-  const color = "#b81616";
-  const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+  const height = canvas.height;
+  const width = canvas.width;
 
-  gradient.addColorStop(0, "red");
-  gradient.addColorStop(0.5, "white");
-  gradient.addColorStop(1, "green");
+  ctx.strokeStyle = "#d6d6d6";
 
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  for (let x = 0.5; x < height; x += 20) {
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, height);
+    ctx.stroke();
+  }
+
+  for (let y = 0.5; y < width; y += 20) {
+    ctx.moveTo(0, y);
+    ctx.lineTo(width, y);
+    ctx.stroke();
+  }
 }
